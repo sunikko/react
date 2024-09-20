@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    const root = document.getElementById("root");
+    
+    // step 3
+    // make it function 1
+    function Title(){
+        return (
+        <h3 id="title" onMouseEnter={()=> console.log("mouse enter")}>Hello I'm a span</h3>
+        );
+    }
+    // step 2
+    //jsx -> babel : transformar
+    // const Title = (
+    //     <h3 id="title" onMouseEnter={()=> console.log("mouse enter")}>Hello I'm a span</h3>
+    // );
+    // step 1
+    // const span = React.createElement(
+    //     "span", 
+    //     {
+    //         id: "my-span", 
+    //         style: { color: "red" },
+    //         onmouseenter: () => console.log("mouse enter"),
+    //     }, 
+    //     "hello I'm a span");
+    
+    //----------------------------------------------------------//
+
+    // step 3
+    // make it function 2
+    const Button = () => (
+        <button 
+        style={{backgroundColor: "tomato"}}
+        onClick={() => console.log("I'm clicked")}
+        >
+        Click me
+        </button>
+    )
+    // step 2 
+    // const Button = (
+    //     <button 
+    //     style={{backgroundColor: "tomato"}}
+    //     onClick={() => console.log("I'm clicked")}
+    //     >
+    //     Click me
+    //     </button>
+    // )
+    // step 1
+    // const btn = React.createElement(
+    //     "button", 
+    //     {
+    //         onClick: () => console.log("I'm clicked"),
+    //     },
+    //     "Click me");
+
+    // step 3
+    const Container = () => (
+        <div> <Title /> <Button /> </div>
+    );
+    // step 2
+    // const Container = <div> <Title /> <Button /> </div>;
+    // step 1
+    // const container = React.createElement("div", { key: 1 }, [Title, Button]);
+    
+    // step 3
+    ReactDOM.render(<Container />, root);
+    // step 2
+    // ReactDOM.render(Container, root);
+    // step1
+    // ReactDOM.render(container, root);
+</script>
+</html>
