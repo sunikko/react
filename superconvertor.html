@@ -14,7 +14,7 @@
 <!-- this isn't the best way cos we should call "render()" after chaning state value -->
 <script type="text/babel">
     const root = document.getElementById("root");
-    function App(){
+    function MinutesToHours(){
         const [minutes, setMinutes] = React.useState();
         const [flipped, setFlipped] = React.useState(false);
 
@@ -28,7 +28,6 @@
         };
         return (
             <div> 
-            <h1 className="hi">Super Convertor</h1>
             <label htmlFor="minutes">minutes</label>
             <input type="number" id="minutes" value={flipped? minutes*60: minutes} onChange={onChange}  disabled={flipped}/>
             <label htmlFor="hours">Hours</label>
@@ -36,6 +35,32 @@
             <button onClick={reset}>reset</button>
             <button onClick={onFlip}>flip</button>
         </div>
+        );
+    };
+    function KmToMiles(){
+        return (
+            <div>Km To Miles
+            </div>
+        );
+    };
+    function App(){
+        const [index, setIndex] = React.useState("0")
+        const onSelect = (event) => {
+            setIndex(event.target.value);
+        };
+        return (
+            <div>
+                <h1 className="hi">Super Convertor</h1>
+                <select value={index} onChange={onSelect}>
+                    <option value="0">Select Your Units</option>
+                    <option value="1">Minutes & Hours</option>
+                    <option value="2">Km & Miles</option>
+                    </select>
+                    <hr />
+                    {index == "0"? "Please select your units": null}
+                    {index == "1"? <MinutesToHours />: null}
+                    {index == "2"? <KmToMiles />: null}
+            </div>
         );
     };
     ReactDOM.render(<App />, root);
