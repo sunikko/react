@@ -17,7 +17,7 @@
     function App(){
         const [counter, setCounter] = React.useState(0); // return [0, f] //initial value, function
         const onClick = () => {
-            setCounter(counter + 1);  //setCounter function change the value and trigger the render automatically
+            setCounter((current) => counter + 1);  //setCounter function change the value and trigger the render automatically
         };
         return (
             <div> 
